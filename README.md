@@ -3,7 +3,7 @@ This repo contains the variants of VOM .
 
 Presently the proposed variants are: 
 1. VOM
-2 . Maximum penalty per unit
+2. Maximum penalty per unit
 3. Maximum penalty cost 
 4. Maximum penalty per unit cost
 5. TOM variant of a
