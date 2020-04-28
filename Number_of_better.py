@@ -8,7 +8,7 @@ vom = data.iloc[:640,1]
 # print(vom[0],vom[639])
 
 o=[]
-for v in range(2,21):
+for v in range(2,25):
 
 	k= data.iloc[:640,v]
 	# print(k)
