@@ -17,7 +17,11 @@ All the above variants are applied on the following non-dimensional matrices
 In additional to the above variants the following have been implemented:
 1. Maximum demand heuristic
 2. Maximum supply heuristic
-3. A few more simply tried out
+3. Trans-Cost on TOM
+4. Weighted Trans-Cost on TOM
+5. Weighted per unit Trans-Cost on TOM
+6. Standard deviation method (highly inefficient : could make it run way faster xD). 
+7. A few more simply tried out
 Calculated the number of times each of these 19 variants gave better results in comparison to orignal Vogel Approximation Method(2008).
 
 
