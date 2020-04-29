@@ -21,25 +21,25 @@ for instance in range(640):
 
 	costs2=copy.deepcopy(costs)
 	costs3=copy.deepcopy(costs)
-	for i in supply:
-	    mi=min(costs[i].values())
-	    # print(costs[i])
-	    # print(mi)
-	    for j in costs2[i]:
-	        costs2[i][j]-=mi
-	# print(costs2)
-	for i in demand :
-	    mi=10000
-	    for j in supply:
-	        if costs[j][i]<mi :
-	            mi=costs[j][i]
-	    for j in supply:
-	        costs3[j][i]=costs3[j][i]-mi 
-	# print(costs3)
+	# for i in supply:
+	#     mi=min(costs[i].values())
+	#     # print(costs[i])
+	#     # print(mi)
+	#     for j in costs2[i]:
+	#         costs2[i][j]-=mi
+	# # print(costs2)
+	# for i in demand :
+	#     mi=10000
+	#     for j in supply:
+	#         if costs[j][i]<mi :
+	#             mi=costs[j][i]
+	#     for j in supply:
+	#         costs3[j][i]=costs3[j][i]-mi 
+	# # print(costs3)
 
-	for i in demand:
-	    for j in supply:
-	        costs[j][i]= costs2[j][i]+costs3[j][i]
+	# for i in demand:
+	#     for j in supply:
+	#         costs[j][i]= costs2[j][i]+costs3[j][i]
 	            
 
 	res = dict((k, defaultdict(int)) for k in costs)
@@ -71,8 +71,9 @@ for instance in range(640):
 	    	mind="S"
 	    	for y in supply:
 	    		if costs[y][x] < mi:
-	    			mi=costs[y][x] 
-	    	term = d[x] * mi 
+	    			mi=costs[y][x]
+	    			mind=y
+	    	term = d[x] * min(demand[x],supply[mind])
 	    	# print(term)
 	    	if term>ma:
 	    		tfin , fin = x , g[x][0]
@@ -83,7 +84,8 @@ for instance in range(640):
 	    	for x in demand:
 	    		if costs[y][x]<mi :
 	    			mi=costs[y][x] 
-	    	term=s[y]* mi 
+	    			mind=x
+	    	term=s[y]* min(demand[mind],supply[y])
 	    	if term>ma :
 	    		tfin,fin = g[y][0] , y 
 	    		ma=term
@@ -132,7 +134,7 @@ from itertools import zip_longest
 instance_number=range(1,641)
 d = [instance_number,costs_list]
 export_data = zip_longest(*d, fillvalue = '')
-with open('All-TOM1-costperunit.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('All-TOM3-costperunit.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       wr.writerow(("Instance","Costs"))
       wr.writerows(export_data)

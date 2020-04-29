@@ -12,39 +12,57 @@ output=[]
 costs_list=[]
 # my_df=pd.DataFrame()
 n=0
-for instance in range(10):
+for instance in range(160):
 	print(instance+1)
 	costs=ast.literal_eval(data['Costs'].iloc[instance])
 	demand=ast.literal_eval(data['Demand'].iloc[instance])
 	supply=ast.literal_eval(data['Supply'].iloc[instance])
-	if len(supply)%10 ==1:
-		del supply["S"+str(len(supply))]
-		del costs["S"+str(len(supply)+1)]
-	if len(demand)%10==1:
-		del demand["D" + str(len(demand))]
-		for x in supply:
-			del costs[x]["D"+str(len(demand)+1)]
-	l1=["Plant"]+ 	list(range(1,11))
+	ls=len(supply)
+	ld=len(demand)
+	di = 0
+	# print((instance+1)/40)
+	if int((instance)/40) == 0:
+		di = 1 
+	elif int((instance)/40) == 1:
+		di = 2
+	elif int((instance)/40 )== 2:
+		di = 5
+	else :
+		di=10
+	fan = (instance%40)
+	cos=0
+	if int(fan/10) ==0:
+		cos=20
+	elif int(fan/10)==1:
+		cos=100
+	elif int(fan/10)==2:
+		cos=500
+	else:
+		cos=1000
+
+
+
+	l1=["Plant"]+ 	list(range(1,ls+1))
 	l2=["Capacity"] + list(supply.values())
-	l3=["Customer"]+list(range(1,21))
+	l3=["Customer"]+list(range(1,ld+1))
 	l4=["Demand"] + list(demand.values())
 	my_df=pd.DataFrame(costs)
-	l5=[f"Instance{instance+1}",10,20]
-	my_df.to_csv(f'converted{n}.csv', index=False, header=False)
+	l5=[f"Instance {instance+1}",ls-ls%10,ld-ld%10,f"{20},{di},{cos},{(instance%10 +1)}"]
+	# my_df.to_csv(f'converted{n}.csv', index=False, header=False)
 
 	with open('document.csv','a',newline='') as fd:
 		writer = csv.writer(fd)
 		writer.writerow(l5)
 	
-	with open('document.csv','a',newline='') as fd:
-		writer = csv.writer(fd)
-		writer.writerow(l1)
+	# with open('document.csv','a',newline='') as fd:
+	# 	writer = csv.writer(fd)
+	# 	writer.writerow(l1)
 	with open('document.csv','a',newline='') as fd:
 		writer = csv.writer(fd)
 		writer.writerow(l2)	
-	with open('document.csv','a',newline='') as fd:
-		writer = csv.writer(fd)
-		writer.writerow(l3)
+	# with open('document.csv','a',newline='') as fd:
+	# 	writer = csv.writer(fd)
+	# 	writer.writerow(l3)
 	with open('document.csv','a',newline='') as fd:
 		writer = csv.writer(fd)
 		writer.writerow(l4)	

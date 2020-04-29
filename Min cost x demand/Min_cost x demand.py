@@ -26,17 +26,18 @@ for instance in range(640):
 
 	res = dict((k, defaultdict(int)) for k in costs)
 	ls=len(supply)
-	while supply: 
+	while supply : 
 		sx="D"
-		sy="S"
-		mi=0
+		dy="S"
+		mi=100000000
 		for x in supply:
 			for y in demand:
-				term= costs[x][y]*min(supply[x],demand[y])
-				if term > mi :
+				term= costs[x][y]/min(supply[x],demand[y])
+				if term < mi :
 					mi=term
 					sx=x
 					dy=y
+		# print(sx,dy)
 		v=min(supply[sx],demand[dy])
 		res[sx][dy]+=v
 		supply[sx]-=v
