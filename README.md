@@ -21,7 +21,11 @@ In additional to the above variants the following have been implemented:
 4. Weighted Trans-Cost on TOM
 5. Weighted per unit Trans-Cost on TOM
 6. Standard deviation method (highly inefficient : could make it run way faster xD). 
-7. A few more simply tried out
+7. TOCM-MT proposed in 2019(sciencedirect journal).
+8. KSAM proposed in 2020(sciencedirect journal).
+9. VAM with zero penalty avoided.
+10. A few more simply tried out.
+
 Calculated the number of times each of these 19 variants gave better results in comparison to orignal Vogel Approximation Method(2008).
 
 
