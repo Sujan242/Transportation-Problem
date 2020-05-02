@@ -1,5 +1,5 @@
 # Vogel-s-Approximation-Method
-This repo contains the variants of VOM .
+This repo contains solutions to the Transporation problem.
 
 Presently the proposed variants are: 
 1. VOM
@@ -24,9 +24,10 @@ In additional to the above variants the following have been implemented:
 7. TOCM-MT proposed in 2019(sciencedirect journal).
 8. KSAM proposed in 2020(sciencedirect journal).
 9. VAM with zero penalty avoided.
-10. A few more simply tried out.
+10. Russel Approximation method.
+11. A few more simply tried out.
 
-Calculated the number of times each of these 19 variants gave better results in comparison to orignal Vogel Approximation Method(2008).
+Calculated the number of times each of these variants gave better results in comparison to orignal Vogel Approximation Method(2008).
 
 
 TODO:
