@@ -56,10 +56,10 @@ for instance in range(640):
 	    # print(demand,supply)
 
 	    for x in demand:
-	        d[x] = (costs[g[x][1]][x] - costs[g[x][0]][x])/(1.0*demand[x]) if len(g[x]) > 1 else (costs[g[x][0]][x])/(1.0*demand[x])
+	        d[x] = (costs[g[x][1]][x] - costs[g[x][0]][x]) if len(g[x]) > 1 else (costs[g[x][0]][x])
 	    s = {}
 	    for x in supply:
-	        s[x] = (costs[x][g[x][1]] - costs[x][g[x][0]])/(1.0*supply[x]) if len(g[x]) > 1 else costs[x][g[x][0]]/(1.0*supply[x])
+	        s[x] = (costs[x][g[x][1]] - costs[x][g[x][0]]) if len(g[x]) > 1 else costs[x][g[x][0]]
 	    
 	    # t1, f1 , maxp= (f, g[f][0] , d[f]) if d[f] > s[t] else (g[t][0], t , s[t])
 	    # v = min(supply[f1], demand[t1])
@@ -134,7 +134,7 @@ from itertools import zip_longest
 instance_number=range(1,641)
 d = [instance_number,costs_list]
 export_data = zip_longest(*d, fillvalue = '')
-with open('All-TOM3-costperunit.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('All-TOM3-costperunit-VAM2.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       wr.writerow(("Instance","Costs"))
       wr.writerows(export_data)
