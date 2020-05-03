@@ -25,7 +25,8 @@ In additional to the above variants the following have been implemented:
 8. KSAM proposed in 2020(sciencedirect journal).
 9. VAM with zero penalty avoided.
 10. Russel Approximation method.
-11. A few more simply tried out.
+11. Geomtric mean method
+12. A few more simply tried out.
 
 Calculated the number of times each of these variants gave better results in comparison to orignal Vogel Approximation Method(2008).
 
