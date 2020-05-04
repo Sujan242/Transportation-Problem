@@ -27,11 +27,14 @@ In additional to the above variants the following have been implemented:
 10. Russel Approximation method.
 11. Geomtric mean method
 12. Maximum row-column total penalty cost
-13. A few more simply tried out.
+13. JHM 
+14. Weighted Penalty cost
+15. A few more simply tried out.
 
 Calculated the number of times each of these variants gave better results in comparison to orignal Vogel Approximation Method(2008).
+Calculated integrated ranks for each of these algorithms.
 
 
 TODO:
-1. Measure performance of each algorithm using EOS,ARPD,IRPD ...
+1. Measure performance of each algorithm using EOS,ARPD, ...
 2. Compare all results with solution obtained from LINGO set code
