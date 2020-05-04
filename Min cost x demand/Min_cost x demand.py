@@ -32,7 +32,7 @@ for instance in range(640):
 		mi=100000000
 		for x in supply:
 			for y in demand:
-				term= costs[x][y]/min(supply[x],demand[y])
+				term= costs[x][y]*min(supply[x],demand[y])
 				if term < mi :
 					mi=term
 					sx=x

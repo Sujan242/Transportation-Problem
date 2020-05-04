@@ -14,14 +14,17 @@ ol=[]
 # print(data.iloc[:,0])
 
 
-for i in range(26):
+for i in range(30):
 
 	l = data.iloc[:,i].tolist()
+	# print(l)
+	# print(l.count("2"))
+	# break
 	l1=[]
 	ir=0
 	# print(l)
 	su=0
-	for j in range(1,27):
+	for j in range(1,31):
 		# print(j)
 		l1.append(l.count(str(j)))
 		ir = ir + l.count(str(j))*j 
