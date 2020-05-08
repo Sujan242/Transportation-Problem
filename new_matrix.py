@@ -1,21 +1,30 @@
 import pandas as pd
 import ast
 data=pd.read_excel('Results.xlsx')
-import scipy.stats as ss
-ol=[]
 
+xa=[20,21,22,24,25,26,27,28,31,32]
+ya=[]
+for i in range(2,34):
+	if i not in xa:
+		ya.append(i)
+# print(len(ya))
+ol= [[0 for i in range(10)] for j in range(22)]
+# xa=[20]
 for i in range(1,641):
-	# print(data.iloc[i,2:].values.tolist())
-	l= data.iloc[i,2:].values.tolist()
-	# print(l)
-	# break
-	o=[(sorted(l).index(x)+1) for x in l]
-	# print(o)
-	ol.append(o)
+	j=0
+	for a in xa :
+		r=0
+		for k in ya:
+			# print(data.iloc[i,k],data.iloc[i,a])
+			# break
+			if data.iloc[i,k]<data.iloc[i,a]:
+				ol[r][j]+=1 
+			r+=1
+		j+=1
+		# break
 	# break
 
 # print(ol)
-print(len(ol[0]))
 
 import csv
 from itertools import zip_longest
@@ -25,8 +34,15 @@ d = ol
 
 d=list(map(list, zip(*d)))
 export_data = zip_longest(*d, fillvalue = '')
-with open('Ranks.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('new-matrix.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       #wr.writerow(("SIZE", "ERT","LPT ","EDD","ODD", "FDD","CGH_LST","CI","SIZE-ANN","ERT-ANN","LPT-ANN","EDD-ANN","ODD-ANN","FDD-ANN","ANN-LST",))
       wr.writerows(export_data)
 myfile.close()
+
+
+
+
+
+
+

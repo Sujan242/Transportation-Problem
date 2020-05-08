@@ -45,14 +45,10 @@ for instance in range(640):
 	res = dict((k, defaultdict(int)) for k in costs)
 	g = {}
 	for x in supply:
-		g[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g], reverse=True)
+		g[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g])
 	for x in demand:
-		g[x] = sorted(costs.keys(), key=lambda g: costs[g][x] , reverse=True)
-	g1={}
-	for x in supply:
-		g1[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g])
-	for x in demand:
-		g1[x] = sorted(costs.keys(), key=lambda g: costs[g][x] )
+		g[x] = sorted(costs.keys(), key=lambda g: costs[g][x])
+	
 
 	# print(costs1)
 	flag=0
@@ -72,13 +68,13 @@ for instance in range(640):
 			for x in supply :
 				s[y] =s[y] + costs[x][y]- costs[g[y][0]][y]
 		t,f="S","D"
-		rx = min(s, key=lambda n: s[n])
+		rx = max(s, key=lambda n: s[n])
 		if demand.get(rx)!=None :
 			t,f = g[rx][0] , rx
 		else :
 			t,f = rx , g[rx][0]
 
-		v= max(supply[t],demand[f])
+		v= min(supply[t],demand[f])
 		demand[f]-=v
 		supply[t]-=v
 		res[t][f]+=v
@@ -124,7 +120,7 @@ from itertools import zip_longest
 instance_number=range(1,641)
 d = [instance_number,costs_list]
 export_data = zip_longest(*d, fillvalue = '')
-with open('MRCPT_VAM.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('MRCPT_TOM.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       wr.writerow(("Instance","Costs"))
       wr.writerows(export_data)

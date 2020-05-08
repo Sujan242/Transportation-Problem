@@ -45,14 +45,10 @@ for instance in range(640):
 	res = dict((k, defaultdict(int)) for k in costs)
 	g = {}
 	for x in supply:
-		g[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g], reverse=True)
+		g[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g])
 	for x in demand:
-		g[x] = sorted(costs.keys(), key=lambda g: costs[g][x] , reverse=True)
-	g1={}
-	for x in supply:
-		g1[x] = sorted(costs[x].keys(), key=lambda g: costs[x][g])
-	for x in demand:
-		g1[x] = sorted(costs.keys(), key=lambda g: costs[g][x] )
+		g[x] = sorted(costs.keys(), key=lambda g: costs[g][x])
+	
 
 	# print(costs1)
 	flag=0

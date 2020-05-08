@@ -14,7 +14,7 @@ ol=[]
 # print(data.iloc[:,0])
 
 
-for i in range(30):
+for i in range(32):
 
 	l = data.iloc[:,i].tolist()
 	# print(l)
@@ -24,7 +24,7 @@ for i in range(30):
 	ir=0
 	# print(l)
 	su=0
-	for j in range(1,31):
+	for j in range(1,33):
 		# print(j)
 		l1.append(l.count(str(j)))
 		ir = ir + l.count(str(j))*j 
@@ -45,6 +45,7 @@ with open('Count_of_ranks.csv','a',newline='') as fd:
 			writer.writerow(ol)
 
 o=[(sorted(ol).index(x)+1) for x in ol]
+print(o)
 with open('Count_of_ranks.csv','a',newline='') as fd:
 		# writer = csv.writer()
 			writer = csv.writer(fd)

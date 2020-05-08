@@ -4,18 +4,21 @@ data=pd.read_excel('Results.xlsx')
 import scipy.stats as ss
 ol=[]
 
-for i in range(1,641):
-	# print(data.iloc[i,2:].values.tolist())
-	l= data.iloc[i,2:].values.tolist()
-	# print(l)
-	# break
-	o=[(sorted(l).index(x)+1) for x in l]
-	# print(o)
-	ol.append(o)
-	# break
 
-# print(ol)
-print(len(ol[0]))
+print(data.iloc[0,34])
+
+
+for i in range(1,641):
+
+	l= data.iloc[i,2:34].values.tolist()
+
+	op = int(data.iloc[i,34])
+	# print(data.iloc[i,34])
+
+	for i in range(len(l)):
+		l[i] = ((int(l[i]) - op)/op)*100
+
+	ol.append(l)
 
 import csv
 from itertools import zip_longest
@@ -25,8 +28,11 @@ d = ol
 
 d=list(map(list, zip(*d)))
 export_data = zip_longest(*d, fillvalue = '')
-with open('Ranks.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('RPD.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       #wr.writerow(("SIZE", "ERT","LPT ","EDD","ODD", "FDD","CGH_LST","CI","SIZE-ANN","ERT-ANN","LPT-ANN","EDD-ANN","ODD-ANN","FDD-ANN","ANN-LST",))
       wr.writerows(export_data)
 myfile.close()
+
+
+
