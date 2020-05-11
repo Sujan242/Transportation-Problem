@@ -28,17 +28,17 @@ for i in range(640):
 
 
 # print(len(ls[0]), len(ls[1]))
-print(ls)
-# import csv
-# from itertools import zip_longest
-# d = num
-# # d=list(map(list, zip(*d)))
-# # d=list(map(list, zip(*d)))
-# export_data = zip_longest(*d, fillvalue = '')
-# with open('number_wrt_arpd.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
-#       wr = csv.writer(myfile)
-#       #wr.writerow(("SIZE", "ERT","LPT ","EDD","ODD", "FDD","CGH_LST","CI","SIZE-ANN","ERT-ANN","LPT-ANN","EDD-ANN","ODD-ANN","FDD-ANN","ANN-LST",))
-#       wr.writerows(export_data)
-# myfile.close()
+# print(ls)
+import csv
+from itertools import zip_longest
+d = num
+# d=list(map(list, zip(*d)))
+# d=list(map(list, zip(*d)))
+export_data = zip_longest(*d, fillvalue = '')
+with open('number_wrt_arpd.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+      wr = csv.writer(myfile)
+      #wr.writerow(("SIZE", "ERT","LPT ","EDD","ODD", "FDD","CGH_LST","CI","SIZE-ANN","ERT-ANN","LPT-ANN","EDD-ANN","ODD-ANN","FDD-ANN","ANN-LST",))
+      wr.writerows(export_data)
+myfile.close()
 
 

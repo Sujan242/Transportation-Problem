@@ -18,7 +18,7 @@ for instance in range(640):
 	# print(supply['S1'])
 	# break
 	# costs1=copy.deepcopy(costs)
-
+# 
 	costs2=copy.deepcopy(costs)
 	costs3=copy.deepcopy(costs)
 	for i in supply:
@@ -51,7 +51,7 @@ for instance in range(640):
 		g[x] = sorted(costs.keys(), key=lambda g: costs[g][x])
 	# print(costs1)
 	flag=0
-	while g:
+	while supply and demand:
 	   
 		d = {}
 		# print(demand,supply)
@@ -77,13 +77,16 @@ for instance in range(640):
 			# print(g[x][0])
 			if costs[x][g[x][0]]==mi and demand[g[x][0]]>=ma:
 				sup=x 
+		# print(costs[sup][g[sup][0]], len(supply))
 		if costs[sup][g[sup][0]]!=0 or len(supply)==1:
-
+			# print("here")
 			v=min(supply[sup],demand[g[sup][0]])
+			# print(sup,demand,v)
 			demand[g[sup][0]]-=v
 			supply[sup]-=v 
 			res[sup][g[sup][0]]+=v 
 			dem = g[sup][0]
+			# print(sup,dem,v)
 			if demand[dem]==0:
 				for k, n in supply.items():
 				    if n != 0:
@@ -100,11 +103,13 @@ for instance in range(640):
 		else :
 			mind="S"
 			ma=-1
+			# print(sup)
 			for x in supply :
-				if s[x]>ma and s[x]!=sup :
+				if s[x]>ma and x!=sup :
 					ma=s[x]
 					mind=x
 			gv1=0
+			# print(mind,"this")
 			for y in demand:
 				if costs[sup][y] > costs[mind][y]:
 					gv1+=1 
@@ -112,10 +117,12 @@ for instance in range(640):
 					gv1-=1
 			if gv1>=0 :
 				v=min(supply[sup],demand[g[sup][0]])
+				# print(sup,demand,v)
 				demand[g[sup][0]]-=v
 				supply[sup]-=v 
 				res[sup][g[sup][0]]+=v 
 				dem=g[sup][0]
+				# print(sup,dem,v)
 				if demand[dem]==0:
 					for k, n in supply.items():
 					    if n != 0:
@@ -131,10 +138,12 @@ for instance in range(640):
 			else :
 				sup=mind 
 				v=min(supply[sup],demand[g[sup][0]])
+				
 				demand[g[sup][0]]-=v
 				supply[sup]-=v 
 				res[sup][g[sup][0]]+=v 
 				dem=g[sup][0]
+				# print(sup,dem,v)
 				if demand[dem]==0:
 					for k, n in supply.items():
 					    if n != 0:
@@ -147,6 +156,8 @@ for instance in range(640):
 					        g[k].remove(sup)
 					del g[sup]
 					del supply[sup]
+		# break
+
 
 	print(demand,supply)	
 	 
@@ -172,7 +183,7 @@ from itertools import zip_longest
 instance_number=range(1,641)
 d = [instance_number,costs_list]
 export_data = zip_longest(*d, fillvalue = '')
-with open('TOCM-MT.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
+with open('TOCM_modified-MT.csv', 'w', encoding="ISO-8859-1", newline='') as myfile:
       wr = csv.writer(myfile)
       wr.writerow(("Instance","Costs"))
       wr.writerows(export_data)

@@ -21,10 +21,11 @@ idi=0
 # print(arpd)
 # print(idi)
 ol=[]
-for k in [1,2,5,10]:
+for n in [160,320,480,640]:
 
-	for n in [160,320,480,640]:
 
+	
+	for k in [1,2,5,10]:
 		arpd=[0 for _ in range(32)]
 		idi=0
 
