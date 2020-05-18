@@ -14,7 +14,7 @@ ol=[]
 # print(data.iloc[:,0])
 
 
-for i in range(32):
+for i in range(34):
 
 	l = data.iloc[:,i].tolist()
 	# print(l)
@@ -24,7 +24,7 @@ for i in range(32):
 	ir=0
 	# print(l)
 	su=0
-	for j in range(1,33):
+	for j in range(1,35):
 		# print(j)
 		l1.append(l.count(str(j)))
 		ir = ir + l.count(str(j))*j 

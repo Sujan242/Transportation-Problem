@@ -6,7 +6,7 @@ ol=[]
 
 for i in range(1,641):
 	# print(data.iloc[i,2:].values.tolist())
-	l= data.iloc[i,2:].values.tolist()
+	l= data.iloc[i,2:-1].values.tolist()
 	# print(l)
 	# break
 	o=[(sorted(l).index(x)+1) for x in l]

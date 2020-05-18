@@ -1,12 +1,12 @@
 import pandas as pd 
 data=pd.read_csv('RPD.csv',header=None)
 
-num=[[0 for _ in range(32)] for _ in range(5)]
+num=[[0 for _ in range(34)] for _ in range(5)]
 
 ls=[[],[]]
 for i in range(640):
 
-	for m in range(32):
+	for m in range(34):
 		v=float(data.iloc[i,m])
 		if m==2 or m==3:
 			if abs(v)<=0.000006:
