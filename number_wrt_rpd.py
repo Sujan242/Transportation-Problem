@@ -17,13 +17,13 @@ for i in range(640):
 		
 		if abs(v-0)<=0.000006 :
 			num[0][m]+=1
-		elif v<=0.5:
+		if v<=0.5:
 			num[1][m]+=1
-		elif v<=1:
+		if v<=1:
 			num[2][m]+=1
-		elif v<=2:
+		if v<=2:
 			num[3][m]+=1
-		elif v<=3:
+		if v<=3:
 			num[4][m]+=1
 
 

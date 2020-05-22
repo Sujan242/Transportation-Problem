@@ -10,7 +10,7 @@ o[20]=0
 o[100]=0
 o[500]=0
 o[1000]=0
-rn=12
+rn=3
 for i in range(160):
 	if data.iloc[i,rn]==0:
 		# print(i)
