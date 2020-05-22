@@ -29,12 +29,10 @@ In additional to the above variants the following have been implemented:
 12. Maximum row-column total penalty cost
 13. JHM 
 14. Weighted Penalty cost
-15. A few more simply tried out.
+15. I-VAM (2019 Babu et all).
+16. A few more simply tried out.
 
 Calculated the number of times each of these variants gave better results in comparison to orignal Vogel Approximation Method(2008).
 Calculated integrated ranks for each of these algorithms.
+Calculated deviation from optimal solution(obtained from LINGO set code).
 
-
-TODO:
-1. Measure performance of each algorithm using EOS,ARPD, ...
-2. Compare all results with solution obtained from LINGO set code
